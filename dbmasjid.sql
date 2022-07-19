@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Jul 2022 pada 02.51
--- Versi server: 10.4.22-MariaDB
--- Versi PHP: 7.4.27
+-- Generation Time: Jul 19, 2022 at 10:02 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_assignment`
+-- Table structure for table `auth_assignment`
 --
 
 CREATE TABLE `auth_assignment` (
@@ -36,7 +36,7 @@ CREATE TABLE `auth_assignment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `auth_assignment`
+-- Dumping data for table `auth_assignment`
 --
 
 INSERT INTO `auth_assignment` (`id_assignment`, `id_aunt`, `item_name`, `user_id`, `created_at`) VALUES
@@ -50,7 +50,7 @@ INSERT INTO `auth_assignment` (`id_assignment`, `id_aunt`, `item_name`, `user_id
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_item`
+-- Table structure for table `auth_item`
 --
 
 CREATE TABLE `auth_item` (
@@ -63,7 +63,7 @@ CREATE TABLE `auth_item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `auth_item`
+-- Dumping data for table `auth_item`
 --
 
 INSERT INTO `auth_item` (`id_aunt`, `name`, `tipe`, `description`, `created_at`, `updated_at`) VALUES
@@ -74,7 +74,7 @@ INSERT INTO `auth_item` (`id_aunt`, `name`, `tipe`, `description`, `created_at`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_item_child`
+-- Table structure for table `auth_item_child`
 --
 
 CREATE TABLE `auth_item_child` (
@@ -85,7 +85,7 @@ CREATE TABLE `auth_item_child` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `auth_item_child`
+-- Dumping data for table `auth_item_child`
 --
 
 INSERT INTO `auth_item_child` (`idc`, `id_aunt`, `parent`, `child`) VALUES
@@ -132,12 +132,14 @@ INSERT INTO `auth_item_child` (`idc`, `id_aunt`, `parent`, `child`) VALUES
 (120, 3, 'User', '89'),
 (121, 3, 'User', '92'),
 (122, 3, 'User', '95'),
-(123, 3, 'User', '96');
+(123, 3, 'User', '96'),
+(124, 1, 'Admin', '97'),
+(125, 1, 'Admin', '98');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `info`
+-- Table structure for table `info`
 --
 
 CREATE TABLE `info` (
@@ -153,16 +155,16 @@ CREATE TABLE `info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `info`
+-- Dumping data for table `info`
 --
 
 INSERT INTO `info` (`id_info`, `nama_web`, `nama_singkat`, `tentang`, `slogan`, `alamat`, `email`, `wa`, `logo_web`) VALUES
-(1, 'MASJID BAITUL MUKMININ', 'BAITUL MUKMININ', 'MASJID BAITUL MUKMININ', 'MASJID BAITUL MUKMININ', 'MASJID BAITUL MUKMININ (JAMI’) JOMBANG', 'tokosarirasa@gmail.com', '0813-3378-2544', '1file_13112021091121.png');
+(1, 'Test', 'BAITUL MUKMININ', 'Test Web Wedding', '4 2 Heart Being One', 'Rahasia', 'Test@gmail.com', '0813-3378-2544', '1file_13112021091121.png');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `menu`
+-- Table structure for table `menu`
 --
 
 CREATE TABLE `menu` (
@@ -177,7 +179,7 @@ CREATE TABLE `menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `menu`
+-- Dumping data for table `menu`
 --
 
 INSERT INTO `menu` (`id`, `name`, `link`, `deskrip`, `icon`, `is_active`, `is_parent`, `tipe`) VALUES
@@ -210,12 +212,14 @@ INSERT INTO `menu` (`id`, `name`, `link`, `deskrip`, `icon`, `is_active`, `is_pa
 (93, 'buletin', 'admin/t_buletin', 'hak akses', 'fa fa-circle', 1, 40, 'link'),
 (94, 'kategori buletin', 'admin/t_kategori', 'hak akses', 'fa fa-circle', 1, 40, 'link'),
 (95, 'web donasi', 'web/t_donasi', 'hak akses', 'fa fa-laptop', 1, 0, 'link'),
-(96, 'web laporan keuangan', 'web/t_keuangan', 'hak akses', 'fa fa-laptop', 1, 0, 'link');
+(96, 'web laporan keuangan', 'web/t_keuangan', 'hak akses', 'fa fa-laptop', 1, 0, 'link'),
+(97, 't_pernikahan', 'admin/t_pernikahan', 'hak akses', 'fa fa-laptop', 1, 0, 'link'),
+(98, 't_galeri', 'admin/t_galeri', 'hak akses', 'fa fa-laptop', 1, 0, 'link');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `page`
+-- Table structure for table `page`
 --
 
 CREATE TABLE `page` (
@@ -228,7 +232,7 @@ CREATE TABLE `page` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `page`
+-- Dumping data for table `page`
 --
 
 INSERT INTO `page` (`id_page`, `link`, `judul`, `deskripsi`, `foto`, `enum`) VALUES
@@ -239,7 +243,7 @@ INSERT INTO `page` (`id_page`, `link`, `judul`, `deskripsi`, `foto`, `enum`) VAL
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `slider`
+-- Table structure for table `slider`
 --
 
 CREATE TABLE `slider` (
@@ -250,7 +254,7 @@ CREATE TABLE `slider` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `slider`
+-- Dumping data for table `slider`
 --
 
 INSERT INTO `slider` (`id_slider`, `judul`, `deskripsi`, `images`) VALUES
@@ -260,7 +264,7 @@ INSERT INTO `slider` (`id_slider`, `judul`, `deskripsi`, `images`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tema`
+-- Table structure for table `tema`
 --
 
 CREATE TABLE `tema` (
@@ -272,7 +276,7 @@ CREATE TABLE `tema` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tema`
+-- Dumping data for table `tema`
 --
 
 INSERT INTO `tema` (`id_tema`, `navbar_bg_color`, `navbar_font_color`, `sidebar_bg_color`, `sidebar_font_color`) VALUES
@@ -281,7 +285,7 @@ INSERT INTO `tema` (`id_tema`, `navbar_bg_color`, `navbar_font_color`, `sidebar_
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_buletin`
+-- Table structure for table `t_buletin`
 --
 
 CREATE TABLE `t_buletin` (
@@ -296,7 +300,7 @@ CREATE TABLE `t_buletin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `t_buletin`
+-- Dumping data for table `t_buletin`
 --
 
 INSERT INTO `t_buletin` (`id_buletin`, `judul_b`, `id_user`, `artikel`, `cover_gambar`, `date`, `time`, `id_kate`) VALUES
@@ -310,7 +314,7 @@ INSERT INTO `t_buletin` (`id_buletin`, `judul_b`, `id_user`, `artikel`, `cover_g
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_donasi`
+-- Table structure for table `t_donasi`
 --
 
 CREATE TABLE `t_donasi` (
@@ -325,7 +329,7 @@ CREATE TABLE `t_donasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `t_donasi`
+-- Dumping data for table `t_donasi`
 --
 
 INSERT INTO `t_donasi` (`id_donasi`, `id_user`, `donatur`, `telepon`, `alamat`, `uang`, `barang`, `ket`) VALUES
@@ -340,7 +344,29 @@ INSERT INTO `t_donasi` (`id_donasi`, `id_user`, `donatur`, `telepon`, `alamat`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_jadwal`
+-- Table structure for table `t_galeri`
+--
+
+CREATE TABLE `t_galeri` (
+  `id` int(11) NOT NULL,
+  `id_pernikahan` int(11) NOT NULL,
+  `nama_foto` varchar(128) NOT NULL,
+  `judul` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `t_galeri`
+--
+
+INSERT INTO `t_galeri` (`id`, `id_pernikahan`, `nama_foto`, `judul`) VALUES
+(1, 1, 'gallery-6.jpg', 'Tempat'),
+(2, 1, 'gallery-8.jpg', 'Acara'),
+(3, 2, 'gallery-9.jpg', 'Makan Makan');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `t_jadwal`
 --
 
 CREATE TABLE `t_jadwal` (
@@ -352,7 +378,7 @@ CREATE TABLE `t_jadwal` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `t_jadwal`
+-- Dumping data for table `t_jadwal`
 --
 
 INSERT INTO `t_jadwal` (`id_jadwal`, `tgl`, `jam`, `nama_kegiatan`, `deskripsi`) VALUES
@@ -361,7 +387,7 @@ INSERT INTO `t_jadwal` (`id_jadwal`, `tgl`, `jam`, `nama_kegiatan`, `deskripsi`)
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_kategori`
+-- Table structure for table `t_kategori`
 --
 
 CREATE TABLE `t_kategori` (
@@ -371,7 +397,7 @@ CREATE TABLE `t_kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `t_kategori`
+-- Dumping data for table `t_kategori`
 --
 
 INSERT INTO `t_kategori` (`id_kate`, `nama_kate`, `status`) VALUES
@@ -381,7 +407,7 @@ INSERT INTO `t_kategori` (`id_kate`, `nama_kate`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_keuangan`
+-- Table structure for table `t_keuangan`
 --
 
 CREATE TABLE `t_keuangan` (
@@ -393,7 +419,7 @@ CREATE TABLE `t_keuangan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `t_keuangan`
+-- Dumping data for table `t_keuangan`
 --
 
 INSERT INTO `t_keuangan` (`id_keuangan`, `tgl`, `deskprisi`, `jenis`, `total`) VALUES
@@ -404,7 +430,35 @@ INSERT INTO `t_keuangan` (`id_keuangan`, `tgl`, `deskprisi`, `jenis`, `total`) V
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_sholat`
+-- Table structure for table `t_pernikahan`
+--
+
+CREATE TABLE `t_pernikahan` (
+  `id` int(11) NOT NULL,
+  `nama_lengkap_p` varchar(128) NOT NULL,
+  `nama_panggilan_p` varchar(128) NOT NULL,
+  `nama_lengkap_w` varchar(128) NOT NULL,
+  `nama_panggilan_w` varchar(128) NOT NULL,
+  `tanggal_pernikahan` date NOT NULL,
+  `alamat_pernikahan` text NOT NULL,
+  `waktu_mulai` time NOT NULL,
+  `waktu_selesai` time NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `status` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `t_pernikahan`
+--
+
+INSERT INTO `t_pernikahan` (`id`, `nama_lengkap_p`, `nama_panggilan_p`, `nama_lengkap_w`, `nama_panggilan_w`, `tanggal_pernikahan`, `alamat_pernikahan`, `waktu_mulai`, `waktu_selesai`, `id_user`, `status`) VALUES
+(1, 'Kaqa Zidane Sahri', 'Kokam', 'Siyapah Akuh', 'Gweh', '2022-07-10', 'Jl. Terusan Larwotherhood No.237 Kota Olympus, Kayangan', '19:00:00', '19:00:00', 12, 0),
+(2, 'Faisal Ahmad Dani', 'Faisal', 'Siapa tuhh', 'Hayu', '2022-09-12', 'Jl.Ngaglik No. Berapa aja boleh', '00:00:19', '00:00:23', 10, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `t_sholat`
 --
 
 CREATE TABLE `t_sholat` (
@@ -416,7 +470,7 @@ CREATE TABLE `t_sholat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `t_sholat`
+-- Dumping data for table `t_sholat`
 --
 
 INSERT INTO `t_sholat` (`id_sholat`, `waktu_sholat`, `hari`, `imam`, `muadzin`) VALUES
@@ -426,7 +480,7 @@ INSERT INTO `t_sholat` (`id_sholat`, `waktu_sholat`, `hari`, `imam`, `muadzin`) 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -444,7 +498,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `nokartuidentitas`, `first_name`, `last_name`, `alamat`, `phone`, `foto`, `active`) VALUES
@@ -458,7 +512,7 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `nokartuidentitas`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users_detail`
+-- Table structure for table `users_detail`
 --
 
 CREATE TABLE `users_detail` (
@@ -471,7 +525,7 @@ CREATE TABLE `users_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `users_detail`
+-- Dumping data for table `users_detail`
 --
 
 INSERT INTO `users_detail` (`id`, `ip_address`, `activation_code`, `forgotten_password_time`, `created_on`, `last_login`) VALUES
@@ -485,8 +539,8 @@ INSERT INTO `users_detail` (`id`, `ip_address`, `activation_code`, `forgotten_pa
 -- --------------------------------------------------------
 
 --
--- Stand-in struktur untuk tampilan `view_akses`
--- (Lihat di bawah untuk tampilan aktual)
+-- Stand-in structure for view `view_akses`
+-- (See below for the actual view)
 --
 CREATE TABLE `view_akses` (
 `id` int(11) unsigned
@@ -507,8 +561,8 @@ CREATE TABLE `view_akses` (
 -- --------------------------------------------------------
 
 --
--- Stand-in struktur untuk tampilan `view_auth_child`
--- (Lihat di bawah untuk tampilan aktual)
+-- Stand-in structure for view `view_auth_child`
+-- (See below for the actual view)
 --
 CREATE TABLE `view_auth_child` (
 `idc` int(11)
@@ -526,8 +580,8 @@ CREATE TABLE `view_auth_child` (
 -- --------------------------------------------------------
 
 --
--- Stand-in struktur untuk tampilan `view_hk`
--- (Lihat di bawah untuk tampilan aktual)
+-- Stand-in structure for view `view_hk`
+-- (See below for the actual view)
 --
 CREATE TABLE `view_hk` (
 `id` int(11) unsigned
@@ -543,220 +597,244 @@ CREATE TABLE `view_hk` (
 -- --------------------------------------------------------
 
 --
--- Struktur untuk view `view_akses`
+-- Structure for view `view_akses`
 --
 DROP TABLE IF EXISTS `view_akses`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_akses`  AS SELECT `users`.`id` AS `id`, `users`.`username` AS `username`, `users`.`first_name` AS `first_name`, `auth_item`.`name` AS `name_level`, `auth_item`.`id_aunt` AS `id_aunt`, `menu`.`id` AS `id_child`, `menu`.`name` AS `name`, `menu`.`link` AS `link`, `menu`.`deskrip` AS `deskrip`, `menu`.`icon` AS `icon`, `menu`.`is_active` AS `is_active`, `menu`.`is_parent` AS `is_parent`, `menu`.`tipe` AS `tipe` FROM ((((`users` join `auth_assignment` on(`users`.`id` = `auth_assignment`.`user_id`)) join `auth_item` on(`auth_item`.`id_aunt` = `auth_assignment`.`id_aunt`)) join `auth_item_child` on(`auth_item`.`id_aunt` = `auth_item_child`.`id_aunt`)) join `menu` on(`menu`.`id` = `auth_item_child`.`child`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_akses`  AS SELECT `users`.`id` AS `id`, `users`.`username` AS `username`, `users`.`first_name` AS `first_name`, `auth_item`.`name` AS `name_level`, `auth_item`.`id_aunt` AS `id_aunt`, `menu`.`id` AS `id_child`, `menu`.`name` AS `name`, `menu`.`link` AS `link`, `menu`.`deskrip` AS `deskrip`, `menu`.`icon` AS `icon`, `menu`.`is_active` AS `is_active`, `menu`.`is_parent` AS `is_parent`, `menu`.`tipe` AS `tipe` FROM ((((`users` join `auth_assignment` on(`users`.`id` = `auth_assignment`.`user_id`)) join `auth_item` on(`auth_item`.`id_aunt` = `auth_assignment`.`id_aunt`)) join `auth_item_child` on(`auth_item`.`id_aunt` = `auth_item_child`.`id_aunt`)) join `menu` on(`menu`.`id` = `auth_item_child`.`child`))  ;
 
 -- --------------------------------------------------------
 
 --
--- Struktur untuk view `view_auth_child`
+-- Structure for view `view_auth_child`
 --
 DROP TABLE IF EXISTS `view_auth_child`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_auth_child`  AS SELECT `auth_item_child`.`idc` AS `idc`, `auth_item_child`.`parent` AS `parent`, `auth_item_child`.`child` AS `child`, `menu`.`name` AS `name`, `menu`.`link` AS `link`, `menu`.`deskrip` AS `deskrip`, `menu`.`icon` AS `icon`, `menu`.`is_parent` AS `is_parent`, `menu`.`is_active` AS `is_active`, `menu`.`tipe` AS `tipe` FROM (`auth_item_child` join `menu` on(`menu`.`id` = `auth_item_child`.`child`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_auth_child`  AS SELECT `auth_item_child`.`idc` AS `idc`, `auth_item_child`.`parent` AS `parent`, `auth_item_child`.`child` AS `child`, `menu`.`name` AS `name`, `menu`.`link` AS `link`, `menu`.`deskrip` AS `deskrip`, `menu`.`icon` AS `icon`, `menu`.`is_parent` AS `is_parent`, `menu`.`is_active` AS `is_active`, `menu`.`tipe` AS `tipe` FROM (`auth_item_child` join `menu` on(`menu`.`id` = `auth_item_child`.`child`))  ;
 
 -- --------------------------------------------------------
 
 --
--- Struktur untuk view `view_hk`
+-- Structure for view `view_hk`
 --
 DROP TABLE IF EXISTS `view_hk`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_hk`  AS SELECT `users`.`id` AS `id`, `users`.`username` AS `username`, `auth_assignment`.`id_assignment` AS `id_assignment`, `auth_assignment`.`id_aunt` AS `id_aunt`, `auth_assignment`.`item_name` AS `item_name`, `auth_assignment`.`created_at` AS `created_at`, `auth_item_child`.`idc` AS `idc`, `auth_item_child`.`child` AS `child` FROM ((`auth_assignment` join `users` on(`users`.`id` = `auth_assignment`.`user_id`)) join `auth_item_child` on(`auth_item_child`.`id_aunt` = `auth_assignment`.`id_aunt`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_hk`  AS SELECT `users`.`id` AS `id`, `users`.`username` AS `username`, `auth_assignment`.`id_assignment` AS `id_assignment`, `auth_assignment`.`id_aunt` AS `id_aunt`, `auth_assignment`.`item_name` AS `item_name`, `auth_assignment`.`created_at` AS `created_at`, `auth_item_child`.`idc` AS `idc`, `auth_item_child`.`child` AS `child` FROM ((`auth_assignment` join `users` on(`users`.`id` = `auth_assignment`.`user_id`)) join `auth_item_child` on(`auth_item_child`.`id_aunt` = `auth_assignment`.`id_aunt`))  ;
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `auth_assignment`
+-- Indexes for table `auth_assignment`
 --
 ALTER TABLE `auth_assignment`
   ADD PRIMARY KEY (`id_assignment`);
 
 --
--- Indeks untuk tabel `auth_item`
+-- Indexes for table `auth_item`
 --
 ALTER TABLE `auth_item`
   ADD PRIMARY KEY (`id_aunt`);
 
 --
--- Indeks untuk tabel `auth_item_child`
+-- Indexes for table `auth_item_child`
 --
 ALTER TABLE `auth_item_child`
   ADD PRIMARY KEY (`idc`);
 
 --
--- Indeks untuk tabel `info`
+-- Indexes for table `info`
 --
 ALTER TABLE `info`
   ADD PRIMARY KEY (`id_info`);
 
 --
--- Indeks untuk tabel `menu`
+-- Indexes for table `menu`
 --
 ALTER TABLE `menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `page`
+-- Indexes for table `page`
 --
 ALTER TABLE `page`
   ADD PRIMARY KEY (`id_page`);
 
 --
--- Indeks untuk tabel `slider`
+-- Indexes for table `slider`
 --
 ALTER TABLE `slider`
   ADD PRIMARY KEY (`id_slider`);
 
 --
--- Indeks untuk tabel `tema`
+-- Indexes for table `tema`
 --
 ALTER TABLE `tema`
   ADD PRIMARY KEY (`id_tema`);
 
 --
--- Indeks untuk tabel `t_buletin`
+-- Indexes for table `t_buletin`
 --
 ALTER TABLE `t_buletin`
   ADD PRIMARY KEY (`id_buletin`);
 
 --
--- Indeks untuk tabel `t_donasi`
+-- Indexes for table `t_donasi`
 --
 ALTER TABLE `t_donasi`
   ADD PRIMARY KEY (`id_donasi`);
 
 --
--- Indeks untuk tabel `t_jadwal`
+-- Indexes for table `t_galeri`
+--
+ALTER TABLE `t_galeri`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `t_jadwal`
 --
 ALTER TABLE `t_jadwal`
   ADD PRIMARY KEY (`id_jadwal`);
 
 --
--- Indeks untuk tabel `t_kategori`
+-- Indexes for table `t_kategori`
 --
 ALTER TABLE `t_kategori`
   ADD PRIMARY KEY (`id_kate`);
 
 --
--- Indeks untuk tabel `t_keuangan`
+-- Indexes for table `t_keuangan`
 --
 ALTER TABLE `t_keuangan`
   ADD PRIMARY KEY (`id_keuangan`);
 
 --
--- Indeks untuk tabel `t_sholat`
+-- Indexes for table `t_pernikahan`
+--
+ALTER TABLE `t_pernikahan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `t_sholat`
 --
 ALTER TABLE `t_sholat`
   ADD PRIMARY KEY (`id_sholat`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `users_detail`
+-- Indexes for table `users_detail`
 --
 ALTER TABLE `users_detail`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `auth_assignment`
+-- AUTO_INCREMENT for table `auth_assignment`
 --
 ALTER TABLE `auth_assignment`
   MODIFY `id_assignment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT untuk tabel `auth_item`
+-- AUTO_INCREMENT for table `auth_item`
 --
 ALTER TABLE `auth_item`
   MODIFY `id_aunt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `auth_item_child`
+-- AUTO_INCREMENT for table `auth_item_child`
 --
 ALTER TABLE `auth_item_child`
-  MODIFY `idc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+  MODIFY `idc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
 
 --
--- AUTO_INCREMENT untuk tabel `info`
+-- AUTO_INCREMENT for table `info`
 --
 ALTER TABLE `info`
   MODIFY `id_info` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `menu`
+-- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
--- AUTO_INCREMENT untuk tabel `page`
+-- AUTO_INCREMENT for table `page`
 --
 ALTER TABLE `page`
   MODIFY `id_page` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `slider`
+-- AUTO_INCREMENT for table `slider`
 --
 ALTER TABLE `slider`
   MODIFY `id_slider` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `tema`
+-- AUTO_INCREMENT for table `tema`
 --
 ALTER TABLE `tema`
   MODIFY `id_tema` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `t_buletin`
+-- AUTO_INCREMENT for table `t_buletin`
 --
 ALTER TABLE `t_buletin`
   MODIFY `id_buletin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `t_donasi`
+-- AUTO_INCREMENT for table `t_donasi`
 --
 ALTER TABLE `t_donasi`
   MODIFY `id_donasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `t_jadwal`
+-- AUTO_INCREMENT for table `t_galeri`
+--
+ALTER TABLE `t_galeri`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `t_jadwal`
 --
 ALTER TABLE `t_jadwal`
   MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `t_kategori`
+-- AUTO_INCREMENT for table `t_kategori`
 --
 ALTER TABLE `t_kategori`
   MODIFY `id_kate` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `t_keuangan`
+-- AUTO_INCREMENT for table `t_keuangan`
 --
 ALTER TABLE `t_keuangan`
   MODIFY `id_keuangan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `t_sholat`
+-- AUTO_INCREMENT for table `t_pernikahan`
+--
+ALTER TABLE `t_pernikahan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `t_sholat`
 --
 ALTER TABLE `t_sholat`
   MODIFY `id_sholat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
